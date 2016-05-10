@@ -1,5 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<% if user_signed_in? %>
-  <h2>Hola</h2>
-<% end %>
+<h1>Cuenta de Prueba</h1>
+<h2>Hola</h2>
+<p><%= @user_data %></p>
+<p>
+  <strong>username:</strong> <%= @user_data['username'] %> <br>
+  <strong>profile:</strong> <img src="<%= @user_data['profile_picture'] %>" alt=""> <br>
+  <h3>Estado Inicial</h3>
+  <strong>Seguidores:</strong> <%= current_user.followed_by %> <br>
+  <strong>Siguendo:</strong> <%= current_user.follows %> <br>
+  <h3>Estado Actual</h3>
+  <strong>Seguidores:</strong> <%= @user_data['counts']['followed_by'] %> <br>
+  <strong>Siguendo:</strong> <%= @user_data['counts']['follows'] %> <br>
+</p>
