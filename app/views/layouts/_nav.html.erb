@@ -41,6 +41,8 @@
         <% else %>
           <li><a href="<%= new_user_registration_path %>">Sign up</a></li>
           <li><a href="<%= new_user_session_path %>">Sign in</a></li>
+          <li><%= link_to "Sign in with Instagram", user_omniauth_authorize_path(:instagram) %></li>
+
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
