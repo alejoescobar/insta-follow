@@ -241,7 +241,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :instagram, '92d62907daa7499baf099bf0153e2756', '383f1716920e4da7b2bb8d38b5148285',
+  config.omniauth :instagram, ENV['INSTAGRAM_APP_ID'], ENV['INSTAGRAM_APP_SECRET'],
   scope: 'follower_list', callback_url: "http://localhost:3000"
 
   # ==> Warden configuration
