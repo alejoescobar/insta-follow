@@ -1,13 +1,55 @@
-<h1>Cuenta de Prueba</h1>
-<h2>Hola</h2>
-<p><%= @user_data %></p>
-<p>
-  <strong>username:</strong> <%= @user_data['username'] %> <br>
-  <strong>profile:</strong> <img src="<%= @user_data['profile_picture'] %>" alt=""> <br>
-  <h3>Estado Inicial</h3>
-  <strong>Seguidores:</strong> <%= current_user.followed_by %> <br>
-  <strong>Siguendo:</strong> <%= current_user.follows %> <br>
-  <h3>Estado Actual</h3>
-  <strong>Seguidores:</strong> <%= @user_data['counts']['followed_by'] %> <br>
-  <strong>Siguendo:</strong> <%= @user_data['counts']['follows'] %> <br>
-</p>
+<div class="container-fluid">
+  <h1 class="text-center">Cuenta de Prueba</h1>
+  <div class="row text-center">
+    <div class="col-sm-6 col-md-8 col-md-offset-2">
+      <div class="thumbnail">
+        <img src="<%= @user_data['profile_picture'] %>" alt="...">
+        <div class="caption">
+          <h3><%= @user_data['username'] %></h3>
+          <hr>
+          <div class="row">
+            <div class="col-md-4">
+              <h4>Estado actual</h4>
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="text-center"><%= @user_data['counts']['follows'] %></p>
+                  <h5 class="text-center">Siguiendo</h5>
+                </div>
+                <div class="col-md-6">
+                  <p class="text-center"><%= @user_data['counts']['followed_by'] %></p>
+                  <h5 class="text-center">Seguidores</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <h4>Rendimiento</h4>
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="text-center">0</p>
+                  <h5 class="text-center">Solicitudes</h5>
+                </div>
+                <div class="col-md-6">
+                  <p class="text-center"><%= @user_data['counts']['followed_by'] - current_user.followed_by %></p>
+                  <h5 class="text-center">Nuevos seguidores</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <h4>Estado inicial</h4>
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="text-center"><%= current_user.follows %></p>
+                  <h5 class="text-center">Siguiendo</h5>
+                </div>
+                <div class="col-md-6">
+                  <p class="text-center"><%= current_user.followed_by %></p>
+                  <h5 class="text-center">Seguidores</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
