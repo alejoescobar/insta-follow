@@ -8,4 +8,8 @@ class PagesController < ApplicationController
     @user_data = JSON.parse(data)['data']
   end
 
+  def requests
+    #code
+  end
+
 end
