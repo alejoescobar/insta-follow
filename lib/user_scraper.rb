@@ -24,7 +24,7 @@ class UserScraper
     	loop until Capybara.page.evaluate_script('jQuery.active').zero?
     end
 
-    puts "--------"
+    username_array = []
 
     counter = 1
     old_counter = 0
@@ -36,13 +36,7 @@ class UserScraper
       if counter == old_counter || counter > 1
         puts "finished!!!"
         Capybara.all("._j7lfh").each do |user|
-          puts "yes"
-          puts user.text
-          puts "yes"
-          # Capybara.within(user) do
-          #   puts Capybara.find("._4zhc5 _j7lfh").text
-          #   puts user.text
-          # end
+          username_array << user.text
         end
         break
       else
@@ -54,7 +48,7 @@ class UserScraper
     Timeout.timeout(Capybara.default_wait_time) do
     	loop until Capybara.page.evaluate_script('jQuery.active').zero?
     end
-
+    username_array
   end
 
   def self.instagram_authenticate
