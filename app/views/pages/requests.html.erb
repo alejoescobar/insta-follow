@@ -1,3 +1,39 @@
-<div class="container-fluid">
+<style media="screen">
+  .avatar-small {
+    border-radius: 100%;
+    width: 30px;
+  }
+
+  .table-padding {
+    padding: 10px;
+  }
+</style>
+
+<div class="container">
   <h1>Follow Requests will go here.</h1>
+  <table>
+    <tr>
+      <th class="table-padding">
+        image
+      </th>
+      <th>
+        name
+      </th>
+      <th>
+        username
+      </th>
+    </tr>
+    <% @to_follow.each do |user| %>
+      <tr>
+        <td class="table-padding">
+          <img class="avatar-small" src="<%= user[:image] %>" alt="">
+        </td>
+        <td>
+          <a href="<%= user[:page] %>" target="_blank"><%= user[:name] %></a>
+        </td>
+        <td>
+          <a href="<%= user[:page] %>" target="_blank"><%= user[:username] %></a>
+        </td>
+      </tr>
+    <% end %>
 </div>

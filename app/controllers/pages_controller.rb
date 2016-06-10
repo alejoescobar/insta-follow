@@ -13,7 +13,7 @@ class PagesController < ApplicationController
   end
 
   def requests
-    #code
+    @to_follow = UserScraper.instagram_names(params[:instagram_user])
   end
 
 end
